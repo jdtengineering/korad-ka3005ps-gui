@@ -49,7 +49,7 @@ This software controls a power supply that can output up to 30V and 5A. **Always
 
    ```bash
    git clone <repository-url>
-   cd "Korad KD3005P V4"
+   cd <repository-dir>
    ```
 2. Install the required dependency:
 
@@ -67,7 +67,7 @@ Using a virtual environment keeps your project dependencies isolated and prevent
 
    ```bash
    git clone <repository-url>
-   cd "Korad KD3005P V4"
+   cd <repository-dir>
    ```
 2. Create a virtual environment:
 
@@ -91,7 +91,7 @@ Using a virtual environment keeps your project dependencies isolated and prevent
 
    ```bash
    git clone <repository-url>
-   cd "Korad KD3005P V4"
+   cd <repository-dir>
    ```
 2. Create a virtual environment:
 
