@@ -8,6 +8,15 @@ https://eleshop.eu/korad-ka3005ps-power-supply.html
 
 ![Korad Controller Interface](screenshot.png)
 
+## Safety Notice
+
+This software controls a power supply that can output up to 30V and 5A. **Always**:
+- Double-check voltage and current settings before enabling output
+- Use appropriate fuses and protection in your circuits
+- Watch the visual safety indicator (red warning when output is ON)
+- Never leave the power supply unattended with output enabled
+- Verify connections before powering on
+
 ## Features
 
 - **Real-time Monitoring**: Continuous display of voltage and current readings
@@ -125,7 +134,7 @@ python3 simple_korad_gui.py
 ### Start
 
 1. When you launch the application, a COM port selection dialog will appear
-2. Select your Korad KD3005P device from the list (shows as a USB Serial device)
+2. Select your Korad KA3005PS device from the list (shows as a USB Serial device)
 3. Click "Connect"
 
 ### Using the Controls
@@ -185,12 +194,4 @@ The Korad KD3005P uses the following serial command protocol:
 
 All commands are terminated with `\r\n` (CR+LF).
 
-## Safety Notice
 
-This software controls a power supply that can output up to 30V and 5A. Always:
-
-- Double-check voltage and current settings before enabling output
-- Use appropriate fuses and protection in your circuits
-- Watch the visual safety indicator (red warning when output is ON)
-- Never leave the power supply unattended with output enabled
-- Verify connections before powering on
