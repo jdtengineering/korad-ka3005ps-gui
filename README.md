@@ -8,8 +8,6 @@ https://eleshop.eu/korad-ka3005ps-power-supply.html
 
 ![Korad Controller Interface](screenshot.png)
 
-> **Note:** To add a screenshot, run `simple_korad_gui.py`, take a screenshot of the application window, and save it as `screenshot.png` in the project root directory.
-
 ## Features
 
 - **Real-time Monitoring**: Continuous display of voltage and current readings
