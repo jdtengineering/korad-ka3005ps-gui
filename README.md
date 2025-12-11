@@ -2,6 +2,8 @@
 
 A cross-platform Python GUI application for controlling and monitoring the Korad KA3005PS programmable DC power supply over serial communication.
 
+https://eleshop.eu/korad-ka3005ps-power-supply.html
+
 ## Screenshot
 
 ![Korad Controller Interface](screenshot.png)
