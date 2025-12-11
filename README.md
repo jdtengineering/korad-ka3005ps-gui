@@ -109,8 +109,6 @@ Using a virtual environment keeps your project dependencies isolated and prevent
 
 ## Usage
 
-### Simple GUI Version
-
 After activating your virtual environment (if using one):
 
 **Windows:**
@@ -124,29 +122,11 @@ python simple_korad_gui.py
 ```bash
 python3 simple_korad_gui.py
 ```
-
-### Advanced GUI Version
-
-After activating your virtual environment (if using one):
-
-**Windows:**
-
-```bash
-python korad.py
-```
-
-**Linux/macOS:**
-
-```bash
-python3 korad.py
-```
-
-### First-Time Setup
+### Start
 
 1. When you launch the application, a COM port selection dialog will appear
-2. Select your Korad KD3005P device from the list (usually shows as a USB Serial device)
+2. Select your Korad KD3005P device from the list (shows as a USB Serial device)
 3. Click "Connect"
-4. The application will remember your device settings for future use
 
 ### Using the Controls
 
@@ -159,25 +139,6 @@ python3 korad.py
 - **Safety Indicator**:
   - Green checkmark = Output OFF (safe)
   - Red warning triangle = Output ON (danger - voltage present)
-
-## Configuration
-
-### Baud Rate Settings
-
-The Korad KD3005P typically uses:
-
-- **Simple GUI**: 4800 baud (hardcoded)
-- **Advanced GUI**: 9600 baud (configurable in UI)
-
-If you experience communication issues, try testing different baud rates using `test_baud_rates.py`:
-
-```bash
-python test_baud_rates.py
-```
-
-### Device Settings Persistence
-
-The advanced GUI (korad.py) automatically saves device-specific settings (baud rate, start delay) in `Archive.pickle`. These settings persist across sessions.
 
 ## Troubleshooting
 
@@ -202,79 +163,6 @@ The advanced GUI (korad.py) automatically saves device-specific settings (baud r
 
 - Check if the USB driver is installed
 - Look for devices like `/dev/tty.usbserial-*` or `/dev/cu.usbserial-*`
-
-### Device Not Responding
-
-1. Verify the device is powered on
-2. Check USB cable connection
-3. Try the reconnect button
-4. Test with `test_serial.py` to verify communication:
-   ```bash
-   python test_serial.py
-   ```
-
-### No Voltage/Current Readings
-
-- Check the baud rate setting (try 4800 or 9600)
-- Ensure DTR and RTS signals are enabled
-- Verify the device model is KD3005P (other models may use different protocols)
-
-## Project Architecture
-
-### Simple GUI (`simple_korad_gui.py`)
-
-Single-file application with direct serial communication and threading for continuous monitoring.
-
-### Advanced GUI (`korad.py`)
-
-Modular architecture with message-passing components:
-
-- **DeviceSelection**: Monitors and lists available serial devices
-- **SerialPort**: Manages low-level serial communication
-- **KoradInterface**: Provides GUI controls for power supply functions
-- **Archivist**: Persists device configuration
-- **Transceiver**: Base class for inter-component messaging
-- **Hub**: Message routing between components
-
-## Development
-
-### Running Tests
-
-Test serial communication:
-
-```bash
-python test_serial.py
-```
-
-Test different baud rates:
-
-```bash
-python test_baud_rates.py
-```
-
-### File Structure
-
-```
-Korad KD3005P V4/
-├── simple_korad_gui.py      # Standalone GUI application
-├── korad.py                  # Advanced modular GUI
-├── requirements.txt          # Python dependencies
-├── korad/                    # Korad interface modules
-│   ├── interface_tools/      # Control components
-│   │   ├── voltage.py
-│   │   ├── current.py
-│   │   ├── output_control.py
-│   │   ├── ocp_control.py
-│   │   └── memory_control.py
-│   └── settings.py
-├── serial_port/              # Serial communication modules
-│   ├── configure.py
-│   ├── device_listing.py
-│   └── modem_lines.py
-├── transceiver.py            # Message passing base class
-├── hub.py                    # Message routing
-└── archivist.py              # Configuration persistence
-```
 
 ## Protocol Reference
 
@@ -306,17 +194,3 @@ This software controls a power supply that can output up to 30V and 5A. Always:
 - Watch the visual safety indicator (red warning when output is ON)
 - Never leave the power supply unattended with output enabled
 - Verify connections before powering on
-
-## License
-
-This project is provided as-is for educational and personal use.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues or pull requests.
-
-## Acknowledgments
-
-- Built for the Korad KD3005P programmable DC power supply
-- Uses PySerial for cross-platform serial communication
-- Tkinter for the GUI interface
