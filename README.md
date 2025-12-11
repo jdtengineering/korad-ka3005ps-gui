@@ -26,21 +26,6 @@ https://eleshop.eu/korad-ka3005ps-power-supply.html
   - Configurable baud rate and start delay
 - **Cross-Platform Support**: Windows, Linux, and macOS compatible
 
-## Two GUI Versions Available
-
-### 1. Simple GUI (`simple_korad_gui.py`)
-
-A standalone, easy-to-use interface with all essential features in a single file. Perfect for quick control and monitoring.
-
-### 2. Advanced GUI (`korad.py`)
-
-A modular application with message-passing architecture featuring:
-
-- Device monitoring and automatic reconnection
-- Configuration persistence (stores device settings)
-- Modem line control (DTR, RTS, CTS, DSR, DCD, RI)
-- Extensible component-based design
-
 ## Requirements
 
 - Python 3.6 or higher
