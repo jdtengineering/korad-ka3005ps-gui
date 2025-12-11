@@ -1,6 +1,6 @@
-# Korad KD3005P Power Supply Controller
+# Korad KA3005PS Power Supply Controller
 
-A cross-platform Python GUI application for controlling and monitoring the Korad KD3005P programmable DC power supply over serial communication.
+A cross-platform Python GUI application for controlling and monitoring the Korad KA3005PS programmable DC power supply over serial communication.
 
 ## Screenshot
 
