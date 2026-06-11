@@ -1,1 +1,5 @@
 pyserial>=3.5
+
+# Build-only dependency (not needed to run from source).
+# Used to build the standalone Windows .exe — see README "Building a Windows executable".
+pyinstaller>=6.0

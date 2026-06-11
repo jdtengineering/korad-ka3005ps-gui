@@ -149,6 +149,23 @@ python3 simple_korad_gui.py
   - Green checkmark = Output OFF (safe)
   - Red warning triangle = Output ON (danger - voltage present)
 
+## Building a Windows executable
+
+You can package the app as a standalone `KoradControl.exe` that runs without a
+Python install. From an activated virtual environment with the dependencies
+installed (`pip install -r requirements.txt`), run:
+
+```bash
+pyinstaller --onefile --windowed --name KoradControl --icon jdt.ico simple_korad_gui.py
+```
+
+- `--onefile` bundles everything into a single `.exe`.
+- `--windowed` suppresses the console window (this is a GUI app).
+- `--icon jdt.ico` sets the application icon.
+
+The executable is written to `dist\KoradControl.exe`. The `build/`, `dist/`, and
+`*.spec` artifacts are git-ignored.
+
 ## Troubleshooting
 
 ### Windows: Port Access Denied

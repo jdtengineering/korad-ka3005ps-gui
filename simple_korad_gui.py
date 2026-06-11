@@ -10,6 +10,18 @@ import serial.tools.list_ports
 import threading
 import time
 
+# USB VID:PID of the Korad/Tenma USB-serial chip (Nuvoton). Used to
+# auto-detect the power supply regardless of which COM number Windows assigns.
+KORAD_VID = 0x0416
+KORAD_PID = 0x5011
+
+def find_korad_port(ports):
+    """Return the device name of the first port matching the Korad VID:PID, else None."""
+    for p in ports:
+        if p.vid == KORAD_VID and p.pid == KORAD_PID:
+            return p.device
+    return None
+
 class KoradGUI:
     def __init__(self, root):
         self.root = root
@@ -115,7 +127,13 @@ class KoradGUI:
         port_list['values'] = [f"{p.device} - {p.description}" for p in ports]
         port_list.pack(pady=10)
 
-        if ports:
+        # Pre-select the Korad power supply if we can identify it by VID:PID,
+        # otherwise fall back to the first available port.
+        korad_port = find_korad_port(ports)
+        if korad_port is not None:
+            korad_index = next(i for i, p in enumerate(ports) if p.device == korad_port)
+            port_list.current(korad_index)
+        elif ports:
             port_list.current(0)
 
         def connect():
